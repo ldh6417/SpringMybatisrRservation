@@ -1,5 +1,7 @@
 package com.zeus.controller;
 
+import java.util.List;
+
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +44,22 @@ public class MemberController {
 		return  "member/failed";
 		
 	}
+	
 	@GetMapping("/memberList")
+	public String memberList(Model model) {
+		log.info("memberList");
+		
+		try {
+			List<Member> memberList = memberservice.list();
+			model.addAttribute("memberList",memberList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "member/memberList";
+		
+	}
+	
+	@GetMapping("/detail")
 
 }
 
