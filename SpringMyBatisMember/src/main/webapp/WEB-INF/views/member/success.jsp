@@ -83,9 +83,11 @@ body {
 
 		<div class="btn-area">
 			<button class="btn btn-list"
-				onclick="location.href='/member/memberList'">회원 목록</button>
+				onclick="location.href='/member/loginForm'">로그인</button>
 			<button class="btn btn-home"
-				onclick="location.href='/member/insertForm'">다시 등록</button>
+				onclick="location.href='/member/detail'">회원 정보</button>
+			<button class="btn btn-list"
+				onclick="location.href='/member/memberList'">회원 리스트</button>
 		</div>
 	</div>
 

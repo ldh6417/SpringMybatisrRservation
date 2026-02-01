@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +25,7 @@ body {
 	padding: 40px;
 	border-radius: 15px;
 	box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
-	position: relative; /* ⭐ 버튼 위치 기준 */
+	position: relative;
 }
 
 h1 {
@@ -53,7 +55,7 @@ tr:hover {
 	cursor: pointer;
 }
 
-/* 👉 오른쪽 상단 버튼 */
+/* 오른쪽 상단 버튼 */
 .top-btn {
 	position: absolute;
 	top: 30px;
@@ -80,7 +82,7 @@ tr:hover {
 
 	<div class="container">
 
-		<!-- 오른쪽 상단 회원가입 버튼 -->
+		<!-- 회원가입 버튼 -->
 		<div class="top-btn">
 			<a href="/member/insertForm" class="btn">회원 가입</a>
 		</div>
@@ -89,11 +91,11 @@ tr:hover {
 
 		<table>
 			<tr>
-				<th>NO</th>
-				<th>ID</th>
-				<th>NAME</th>
-				<th>PHONE</th>
-				<th>REGDATE</th>
+				<th>번호</th>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>전화번호</th>
+				<th>가입일</th>
 			</tr>
 
 			<c:forEach var="member" items="${memberList}">
@@ -102,7 +104,10 @@ tr:hover {
 					<td>${member.id}</td>
 					<td>${member.name}</td>
 					<td>${member.phone}</td>
-					<td>${member.regdate}</td>
+
+					<!-- ⭐ 날짜 포맷 -->
+					<td><fmt:formatDate value="${member.regdate}"
+							pattern="yyyy년 MM월 dd일" /></td>
 				</tr>
 			</c:forEach>
 

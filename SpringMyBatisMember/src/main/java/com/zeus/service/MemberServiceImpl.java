@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	@Transactional
 	public int create(Member member) throws Exception {
-		 return mapper.create(member);
+		return mapper.create(member);
 	}
 
 	@Override
@@ -28,20 +28,24 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member read(Member member) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.read(member);
 	}
 
 	@Override
-	public int delete(Member member) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
+	@Transactional
 	public int update(Member member) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return mapper.update(member);
+	}
+
+	@Override
+	@Transactional
+	public int delete(Member member) throws Exception {
+		return mapper.delete(member);
+	}
+
+	@Override
+	public Member loginRead(Member member) throws Exception {
+		return mapper.loginRead(member);
 	}
 
 }

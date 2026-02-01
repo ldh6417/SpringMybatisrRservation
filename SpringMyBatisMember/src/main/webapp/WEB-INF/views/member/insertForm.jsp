@@ -172,4 +172,5 @@ input[type="text"]:focus {
 			<div class="btn-area">
 				<a href="/member/memberList" class="btn-list">회원 목록</a>
 				<button type="submit" class="btn btn-submit">회원가입</button>
-				<button type="reset" class="btn btn-reset">취소</button>
+				<button class="btn btn-retry"
+				onclick="location.href='/member/loginForm'">로그인</button>

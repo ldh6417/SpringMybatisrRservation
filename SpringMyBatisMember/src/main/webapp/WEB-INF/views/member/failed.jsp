@@ -85,7 +85,7 @@ body {
 
 		<div class="btn-area">
 			<button class="btn btn-retry"
-				onclick="location.href='/member/insertForm'">다시 시도</button>
+				onclick="location.href='/member/loginForm'">다시 시도</button>
 			<button class="btn btn-home"
 				onclick="location.href='/member/memberList'">회원 목록</button>
 		</div>
