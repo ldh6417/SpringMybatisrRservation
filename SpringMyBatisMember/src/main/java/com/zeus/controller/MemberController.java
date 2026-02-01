@@ -1,4 +1,4 @@
-package com.zeus.Controller;
+package com.zeus.controller;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +16,33 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @MapperScan(basePackages = "com.zeus.mapper")
-@RequestMapping("/Member")
-public class MemberContorller {
+@RequestMapping("/member")
+public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 
 	@GetMapping("/insertForm")
-	public String insert(Member member, Model molde) {
-		return "insertForm";
+	public String insert(Member member, Model model) {
+		return "member/insertForm";
 	}
 
 	@PostMapping("/insert")
 	public String memberinsert(Member member, Model model) {
 		log.info("insert member =" + member.toString());
 		try {
-			int count = memberservice.register(member);
+			int count = memberservice.create(member);
 			if (count > 0) {
-				model.addAttribute("messge", "%s 등록 성공".formatted(member.getName()));
+				model.addAttribute("message", "%s 등록 성공".formatted(member.getName()));
 				return  "member/success";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("messge", "%s 등록 실패".formatted(member.getName()));
+		model.addAttribute("message", "%s 등록 실패".formatted(member.getName()));
 		return  "member/failed";
 		
 	}
+	@GetMapping("/memberList")
 
 }
 

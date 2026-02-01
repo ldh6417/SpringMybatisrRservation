@@ -11,18 +11,14 @@ import com.zeus.mapper.MemberMapper;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	
+
 	@Autowired
 	private MemberMapper mapper;
 
 	@Override
 	@Transactional
-	public int register(Member member) throws Exception {
-		int count = mapper.create(member);
-		if (count > 0) {
-			
-		}
-		return count;
+	public int create(Member member) throws Exception {
+		 return mapper.create(member);
 	}
 
 	@Override
@@ -38,23 +34,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	@Transactional
-	public int update(Member member) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	@Transactional
 	public int delete(Member member) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List<Member> memberSearch(Member member) throws Exception {
+	public int update(Member member) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 }
